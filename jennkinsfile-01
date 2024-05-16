@@ -7,7 +7,7 @@ pipeline {
         stage('git clone') {
             steps {
                 // Checkout the code from the Git repository
-                git 'https://github.com/babette22/bab-jenkins-s8.git', branch 'babet-s8'                
+                git url: 'https://github.com/babette22/bab-jenkins-s8.git', branch: 'babet-s8'                
             }
         } 
         stage( 'building image') {
