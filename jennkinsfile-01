@@ -1,0 +1,20 @@
+pipeline {
+    agent {
+        label 'SERVER03'
+    }
+
+    stages {    
+        stage('git clone') {
+            steps {
+                // Checkout the code from the Git repository
+                git 'https://github.com/babette22/bab-jenkins-s8.git', branch 'babet-s8'                
+            }
+        } 
+        stage( 'building image') {
+            steps {
+                 // Build the Docker image using a shell command
+                 sh 'docker build -t your-image-name -f application-01.Dockerfile .'
+            }
+        }       
+    }
+}
